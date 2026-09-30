@@ -1,5 +1,5 @@
 [![](https://img.shields.io/github/v/release/piotrmski/plaid)](https://github.com/piotrmski/plaid/releases)
-[![](https://img.shields.io/github/downloads/piotrmski/plaid/latest/Plaid-Setup-1.0.1.exe)](https://github.com/piotrmski/plaid/releases/download/v1.0.1/Plaid-Setup-1.0.1.exe)
+[![](https://img.shields.io/github/downloads/piotrmski/plaid/latest/Plaid-Setup-1.0.2.exe)](https://github.com/piotrmski/plaid/releases/download/v1.0.2/Plaid-Setup-1.0.2.exe)
 [![](https://snapcraft.io//plaid/badge.svg)](https://snapcraft.io/plaid)
 
 # Plaid
@@ -47,14 +47,6 @@ Plaid lets you get a better overview of your Jira worklog. Add, edit and remove 
 
   Hover you mouse over a worklog entry panel to reveal action buttons. Click the trash button and then click "Yes" to delete the entry.
 
-
-## New in 1.0
-
-- Adding new worklog entries
-- Deleting existing worklog entries
-- Keyboard navigation in worklog entry editor form is now possible
-
-See full change log in `changelog.md`
 
 ## Installation
 
