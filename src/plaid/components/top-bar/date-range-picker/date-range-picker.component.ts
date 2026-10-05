@@ -11,6 +11,7 @@ import {
 import {DateRange} from '../../../model/date-range';
 import {Format} from '../../../helpers/format';
 import {Calendar} from '../../../helpers/calendar';
+
 type Timeout = ReturnType<typeof setTimeout>;
 
 /**
@@ -21,7 +22,8 @@ type Timeout = ReturnType<typeof setTimeout>;
   selector: 'plaid-date-range-picker',
   templateUrl: './date-range-picker.component.html',
   styleUrls: ['./date-range-picker.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: []
 })
 export class DateRangePickerComponent implements OnInit {
   _month: Date;

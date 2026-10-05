@@ -10,6 +10,8 @@ import {
 import {User} from '../../../model/user';
 import {environment} from '../../../../environments/environment';
 
+import {ExtHrefDirective} from '../../../directives/ext-href.directive';
+
 /**
  * Dumb component, responsible for displaying status of authentication and delegating intent to log out or change
  * account. Presents these actions in a dropdown menu.
@@ -18,7 +20,8 @@ import {environment} from '../../../../environments/environment';
   selector: 'plaid-auth-status',
   templateUrl: './auth-status.component.html',
   styleUrls: ['./auth-status.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ExtHrefDirective]
 })
 export class AuthStatusComponent {
   readonly appVersion: string = environment.version;
@@ -82,7 +85,7 @@ export class AuthStatusComponent {
   get currentUserAvatarUrl(): string {
     if (!this.user || !this.user.avatarUrls || Object.keys(this.user.avatarUrls).length === 0) {
       return null;
-    } else if (this.user.avatarUrls.hasOwnProperty('24x24')) {
+    } else if (Object.hasOwn(this.user.avatarUrls, '24x24')) {
       return this.user.avatarUrls['24x24'];
     } else {
       const sizes: string[] = Object.keys(this.user.avatarUrls);

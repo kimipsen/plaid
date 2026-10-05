@@ -4,6 +4,7 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 type Timeout = ReturnType<typeof setTimeout>;
 import {Format} from '../../../helpers/format';
 
+
 /**
  * Dumb component, responsible for displaying current time and marking current date on the grid.
  */
@@ -11,7 +12,8 @@ import {Format} from '../../../helpers/format';
   selector: 'plaid-current-time-marker',
   templateUrl: './current-time-marker.component.html',
   styleUrls: ['./current-time-marker.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: []
 })
 export class CurrentTimeMarkerComponent implements OnInit {
   _pixelsPerMinute: number;

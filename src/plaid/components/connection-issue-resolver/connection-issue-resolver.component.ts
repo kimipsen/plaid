@@ -1,11 +1,14 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthInfo} from '../../model/auth-info';
 import {HttpErrorResponse} from '@angular/common/http';
 import {User} from '../../model/user';
 import {ConnectionIssueModalVisible} from './connection-issue-modal-visible';
 import {AuthFacade} from '../../core/auth/auth.facade';
 import {AppStateService} from '../../core/app-state.service';
-import { Subject } from 'rxjs';
+import {Subject} from 'rxjs';
+import {ErrorModalComponent} from './error-modal/error-modal.component';
+import {LostConnectionModalComponent} from './lost-connection-modal/lost-connection-modal.component';
+import {LoginModalComponent} from './login-modal/login-modal.component';
 
 /**
  * Smart component, contains login, lost connection, and error modals and handles login and reconnect actions.
@@ -13,7 +16,8 @@ import { Subject } from 'rxjs';
 @Component({
   selector: 'plaid-connection-issue-resolver',
   templateUrl: './connection-issue-resolver.component.html',
-  styleUrls: ['./connection-issue-resolver.component.scss']
+  styleUrls: ['./connection-issue-resolver.component.scss'],
+  imports: [ErrorModalComponent, LostConnectionModalComponent, LoginModalComponent]
 })
 export class ConnectionIssueResolverComponent implements OnInit {
   modalVisible: ConnectionIssueModalVisible = ConnectionIssueModalVisible.NONE;

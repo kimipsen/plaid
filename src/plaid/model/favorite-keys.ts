@@ -1,3 +1,1 @@
-export interface FavoriteKeys {
-  [jiraURL: string]: string[];
-}
+export type FavoriteKeys = Record<string, string[]>;

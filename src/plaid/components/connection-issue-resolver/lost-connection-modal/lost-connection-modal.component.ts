@@ -9,7 +9,8 @@ import {
   ElementRef
 } from '@angular/core';
 type Timeout = ReturnType<typeof setTimeout>;
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
+
 
 /**
  * Dumb component, presents lost connection modal and delegates actions to parent component.
@@ -18,7 +19,8 @@ import { Observable } from 'rxjs';
   selector: 'plaid-lost-connection-modal',
   templateUrl: './lost-connection-modal.component.html',
   styleUrls: ['../connection-issue-resolver.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: []
 })
 export class LostConnectionModalComponent implements OnInit {
   reconnectCountdown: Timeout;

@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
+
 /**
  * Dumb component, presents background to the grid.
  */
@@ -7,7 +8,8 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
   selector: 'plaid-grid-background',
   templateUrl: './grid-background.component.html',
   styleUrls: ['./grid-background.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: []
 })
 export class GridBackgroundComponent {
   readonly hoursLabels: string[] = Array.from<string>({ length: 24 }).map((_, i) =>

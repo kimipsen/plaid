@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import {Calendar} from '../../../../helpers/calendar';
 
+
 /**
  * Dumb component, responsible for presenting current date on a dropdown calendar, currently selected date and
  * delegating change in date selection.
@@ -15,7 +16,8 @@ import {Calendar} from '../../../../helpers/calendar';
   selector: 'plaid-date-picker-cloud',
   templateUrl: './date-picker-cloud.component.html',
   styleUrls: ['./date-picker-cloud.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: []
 })
 export class DatePickerCloudComponent {
   _month: Date;
@@ -114,7 +116,7 @@ export class DatePickerCloudComponent {
     this.month = new Date(this.month.getFullYear(), this.month.getMonth() + 1);
   }
 
-  selectDate(date: Date, close: boolean = true): void {
+  selectDate(date: Date, close = true): void {
     if (this.isDateSelectable(date)) {
       this.selectedDate = date;
       this.selectedDateChange.emit(date);

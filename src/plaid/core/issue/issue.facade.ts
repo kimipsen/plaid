@@ -15,7 +15,7 @@ export class IssueFacade {
   private suggestions: Issue[];
 
   private static stripSpecialChars(s: string): string {
-    return s.replace(/([+.,;?|*/%^$#@\[\]"'`])/g, ' ').trim();
+    return s.replace(/([+.,;?|*/%^$#@[\]"'`])/g, ' ').trim();
   }
 
   private static canPotentiallyBeIssueKey(maybeKey: string): boolean {

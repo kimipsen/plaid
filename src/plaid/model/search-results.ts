@@ -7,6 +7,6 @@ export interface SearchResults {
   total?: number;
   issues?: Issue[];
   warningMessages?: string[];
-  names?: {};
-  schema?: {};
+  names?: object;
+  schema?: object;
 }

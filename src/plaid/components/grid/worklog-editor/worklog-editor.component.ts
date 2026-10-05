@@ -20,6 +20,8 @@ import {DatePickerCloudComponent} from './date-picker-cloud/date-picker-cloud.co
 import {Issue} from '../../../model/issue';
 import {IssuePickerCloudComponent} from './issue-picker-cloud/issue-picker-cloud.component';
 import {Subject} from 'rxjs';
+import {FormsModule} from '@angular/forms';
+
 
 /**
  * Smart component, presenting edited worklog, handling all its interactions and updating worklog on the server
@@ -28,7 +30,8 @@ import {Subject} from 'rxjs';
   selector: 'plaid-worklog-editor',
   templateUrl: './worklog-editor.component.html',
   styleUrls: ['./worklog-editor.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [FormsModule, DatePickerCloudComponent, IssuePickerCloudComponent]
 })
 export class WorklogEditorComponent implements OnInit {
   static readonly GRID_OFFSET_TOP = 62; // top bar height + grid header height
@@ -97,7 +100,7 @@ export class WorklogEditorComponent implements OnInit {
   cancelEdit = new EventEmitter<void>();
 
   @Input()
-  gridElement: HTMLDivElement;
+  gridElement: HTMLElement;
 
   /**
    * Whether keyboard navigation should be disabled due to modal or a cloud being open.
@@ -572,7 +575,7 @@ export class WorklogEditorComponent implements OnInit {
     this.updatePanelHueSaturationAndIssueString(issue, '');
   }
 
-  updatePanelHueSaturationAndIssueString(issue?: Issue, defaultIssueString: string = '···'): void {
+  updatePanelHueSaturationAndIssueString(issue?: Issue, defaultIssueString = '···'): void {
     this.panelHue = issue ? Math.round((Number(issue.fields.parent
       ? issue.fields.parent.id
       : issue.id) * 360 / 1.61803)) % 360 : 0;

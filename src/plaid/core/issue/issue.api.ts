@@ -17,7 +17,7 @@ export class IssueApi {
       '?fields=components,issuetype,parent,priority,summary,status').pipe(catchError(() => of(null)));
   }
 
-  search$(jql: string, limit: number = 15): Observable<SearchResults> {
+  search$(jql: string, limit = 15): Observable<SearchResults> {
     const url = this.searchUrl
       + '?jql=' + encodeURIComponent(jql)
       + '&startAt=0'

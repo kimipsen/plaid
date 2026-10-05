@@ -1,5 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Issue} from '../../../model/issue';
+import { NgClass } from '@angular/common';
+import {ExtHrefDirective} from '../../../directives/ext-href.directive';
 
 /**
  * Dumb component presenting the details of an issue for the worklog panel and issue selector.
@@ -8,7 +10,8 @@ import {Issue} from '../../../model/issue';
   selector: 'plaid-issue-details',
   templateUrl: './issue-details.component.html',
   styleUrls: ['./issue-details.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [ExtHrefDirective, NgClass]
 })
 export class IssueDetailsComponent {
   @Input()
