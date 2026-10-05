@@ -11,7 +11,7 @@ import {
 import {DateRange} from '../../../model/date-range';
 import {Format} from '../../../helpers/format';
 import {Calendar} from '../../../helpers/calendar';
-import Timeout = NodeJS.Timeout;
+type Timeout = ReturnType<typeof setTimeout>;
 
 /**
  * Dumb component, responsible for presenting current date on a dropdown calendar, currently selected week and

@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
-import Timeout = NodeJS.Timeout;
+type Timeout = ReturnType<typeof setTimeout>;
 
 /**
  * Dumb component, presents error modal and delegates actions to parent component.

@@ -1,4 +1,5 @@
-const {app, BrowserWindow, Menu} = require('electron');
+const {app, BrowserWindow, Menu, ipcMain, nativeTheme, shell} = require('electron');
+const path = require('path');
 const {autoUpdater} = require('electron-updater');
 const {getNewWindowRect, getNewWindowMaximized, saveWindowState} = require('./window-state');
 
@@ -27,8 +28,9 @@ function createWindow(dev) {
     minHeight: 200,
     show: false,
     webPreferences: {
-      nodeIntegration: true,
-      enableRemoteModule: true,
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js'),
       webSecurity: false
     }
   });
@@ -92,8 +94,22 @@ function createWindow(dev) {
   firstWindowCreated = true;
 }
 
+function registerIpcHandlers() {
+  ipcMain.handle('open-external', (e, url) => {
+    if (/^https?:\/\//i.test(url)) {
+      return shell.openExternal(url);
+    }
+  });
+  ipcMain.handle('set-theme-source', (e, theme) => {
+    if (['system', 'light', 'dark'].includes(theme)) {
+      nativeTheme.themeSource = theme;
+    }
+  });
+}
+
 module.exports = function(dev) {
   if (app.requestSingleInstanceLock()) {
+    registerIpcHandlers();
     app.on('ready', () => createWindow(dev));
     app.on('second-instance', () => createWindow(dev));
     app.on('window-all-closed', () => app.quit());

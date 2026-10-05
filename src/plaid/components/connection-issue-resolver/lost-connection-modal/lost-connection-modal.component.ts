@@ -8,7 +8,7 @@ import {
   ViewChild,
   ElementRef
 } from '@angular/core';
-import Timeout = NodeJS.Timeout;
+type Timeout = ReturnType<typeof setTimeout>;
 import { Observable } from 'rxjs';
 
 /**
