@@ -10,7 +10,7 @@ import {AppStateService} from '../app-state.service';
 import {expand, map, mergeAll, mergeMap, scan, takeLast, tap} from 'rxjs/operators';
 import {Calendar} from '../../helpers/calendar';
 import {UserPreferencesService} from '../user-preferences.service';
-import Timeout = NodeJS.Timeout;
+type Timeout = ReturnType<typeof setTimeout>;
 import {Issue} from '../../model/issue';
 import {WorklogWithPagination} from '../../model/worklog-with-pagination';
 import {SearchResults} from '../../model/search-results';

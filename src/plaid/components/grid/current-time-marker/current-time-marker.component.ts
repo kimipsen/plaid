@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {DateRange} from '../../../model/date-range';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
-import Timeout = NodeJS.Timeout;
+type Timeout = ReturnType<typeof setTimeout>;
 import {Format} from '../../../helpers/format';
 
 /**

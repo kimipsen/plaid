@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {WorklogPanelComponent} from './worklog-panel.component';
 import {fromEvent} from 'rxjs';
-import Timeout = NodeJS.Timeout;
+type Timeout = ReturnType<typeof setTimeout>;
 import {SystemPreferencesService} from '../../../core/system-preferences.service';
 
 /**
