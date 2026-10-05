@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Issue} from '../../../../../model/issue';
+import {IssueDetailsComponent} from '../../../issue-details/issue-details.component';
 
 /**
  * An item on a list of issues in the issue picker. Presents issue details and favorite button, delegates selection of
@@ -8,7 +9,8 @@ import {Issue} from '../../../../../model/issue';
 @Component({
   selector: 'plaid-issue-list-item',
   templateUrl: './issue-list-item.component.html',
-  styleUrls: ['./issue-list-item.component.scss']
+  styleUrls: ['./issue-list-item.component.scss'],
+  imports: [IssueDetailsComponent]
 })
 export class IssueListItemComponent {
 

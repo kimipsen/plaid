@@ -14,6 +14,8 @@ import {Worklog} from '../../../model/worklog';
 import {WorklogPanelsManagerService} from './worklog-panels-manager.service';
 import {Format} from '../../../helpers/format';
 import {AuthFacade} from '../../../core/auth/auth.facade';
+import { NgStyle } from '@angular/common';
+import {IssueDetailsComponent} from '../issue-details/issue-details.component';
 
 /**
  * Somewhat dumb component, present a panel representing a work log entry, or a gap prompting user to add a work log
@@ -23,7 +25,8 @@ import {AuthFacade} from '../../../core/auth/auth.facade';
   selector: 'plaid-worklog-panel',
   templateUrl: './worklog-panel.component.html',
   styleUrls: ['./worklog-panel.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgStyle, IssueDetailsComponent]
 })
 export class WorklogPanelComponent implements OnInit, OnDestroy {
   jiraURL: string;

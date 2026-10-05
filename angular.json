@@ -1,34 +1,71 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "packageManager": "npm",
+    "analytics": false,
+    "schematicCollections": [
+      "angular-eslint"
+    ]
+  },
   "newProjectRoot": "projects",
   "projects": {
     "plaid": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "plaid",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "build/",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "outputPath": {
+              "base": "build",
+              "browser": ""
+            },
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "inlineStyleLanguage": "scss",
             "assets": [
-              "src/assets/appicon",
-              "src/assets/icons.svg"
+              {
+                "glob": "**/*",
+                "input": "src/assets/appicon",
+                "output": "assets/appicon"
+              },
+              {
+                "glob": "icons.svg",
+                "input": "src/assets",
+                "output": "assets"
+              }
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/@openfonts/source-sans-pro_all/index.css",
-              "node_modules/@openfonts/comfortaa_latin/index.css"
-            ],
-            "scripts": []
+              "node_modules/@fontsource/source-sans-pro/200.css",
+              "node_modules/@fontsource/source-sans-pro/200-italic.css",
+              "node_modules/@fontsource/source-sans-pro/300.css",
+              "node_modules/@fontsource/source-sans-pro/300-italic.css",
+              "node_modules/@fontsource/source-sans-pro/400.css",
+              "node_modules/@fontsource/source-sans-pro/400-italic.css",
+              "node_modules/@fontsource/source-sans-pro/600.css",
+              "node_modules/@fontsource/source-sans-pro/600-italic.css",
+              "node_modules/@fontsource/source-sans-pro/700.css",
+              "node_modules/@fontsource/source-sans-pro/700-italic.css",
+              "node_modules/@fontsource/source-sans-pro/900.css",
+              "node_modules/@fontsource/source-sans-pro/900-italic.css",
+              "node_modules/@fontsource/comfortaa/300.css",
+              "node_modules/@fontsource/comfortaa/400.css",
+              "node_modules/@fontsource/comfortaa/500.css",
+              "node_modules/@fontsource/comfortaa/600.css",
+              "node_modules/@fontsource/comfortaa/700.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -38,57 +75,53 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "2MB",
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "6kB",
+                  "maximumError": "10kB"
                 }
-              ]
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "options": {
-            "browserTarget": "plaid:build"
+            "port": 4300
           },
           "configurations": {
             "production": {
-              "browserTarget": "plaid:build:production"
+              "buildTarget": "plaid:build:production"
+            },
+            "development": {
+              "buildTarget": "plaid:build:development"
             }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "plaid:build"
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         }
       }
-    }},
-  "defaultProject": "plaid"
+    }
+  }
 }

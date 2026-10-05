@@ -10,8 +10,13 @@ import {
 import {Worklog} from '../../model/worklog';
 import {DateRange} from '../../model/date-range';
 import {Format} from '../../helpers/format';
-import {User} from 'src/plaid/model/user';
+import {User} from '../../model/user';
 import {WorklogFacade} from '../../core/worklog/worklog.facade';
+import { DatePipe } from '@angular/common';
+import {GridBackgroundComponent} from './grid-background/grid-background.component';
+import {CurrentTimeMarkerComponent} from './current-time-marker/current-time-marker.component';
+import {WorklogPanelComponent} from './worklog-panel/worklog-panel.component';
+import {WorklogEditorComponent} from './worklog-editor/worklog-editor.component';
 
 /**
  * Container for the entire grid including header, background, footer, time marker, and work log entries.
@@ -20,7 +25,8 @@ import {WorklogFacade} from '../../core/worklog/worklog.facade';
   selector: 'plaid-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [GridBackgroundComponent, CurrentTimeMarkerComponent, WorklogPanelComponent, WorklogEditorComponent, DatePipe]
 })
 export class GridComponent implements OnInit, AfterViewInit {
   static readonly GRID_HEADER_AND_FOOTER_COMBINED_HEIGHT = 50;

@@ -24,15 +24,15 @@ export interface Issue {
       }
     }
   };
-  renderedFields?: {};
+  renderedFields?: object;
   properties?: any;
-  names?: {};
-  schema?: {};
+  names?: object;
+  schema?: object;
   transitions?: any[];
   operations?: any;
   editmeta?: any;
   changelog?: any;
-  versionedRepresentations?: {};
+  versionedRepresentations?: object;
   fieldsToInclude?: any;
 
   _favorite?: boolean;

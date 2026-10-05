@@ -9,6 +9,14 @@ import {AppStateService} from '../core/app-state.service';
 import {UserPreferencesService} from '../core/user-preferences.service';
 import {Theme} from '../model/theme';
 import {SystemPreferencesService} from '../core/system-preferences.service';
+import {DateRangePickerComponent} from './top-bar/date-range-picker/date-range-picker.component';
+import {RefreshButtonComponent} from './top-bar/refresh-buton/refresh-button.component';
+import {AddButtonComponent} from './top-bar/add-button/add-button.component';
+import {ZoomControlsComponent} from './top-bar/zoom-controls/zoom-controls.component';
+import {SettingsComponent} from './top-bar/settings/settings.component';
+import {AuthStatusComponent} from './top-bar/auth-status/auth-status.component';
+import {GridComponent} from './grid/grid.component';
+import {ConnectionIssueResolverComponent} from './connection-issue-resolver/connection-issue-resolver.component';
 
 /**
  * Application container.
@@ -16,7 +24,8 @@ import {SystemPreferencesService} from '../core/system-preferences.service';
 @Component({
   selector: 'plaid-root',
   templateUrl: './plaid.component.html',
-  styleUrls: ['./plaid.component.scss']
+  styleUrls: ['./plaid.component.scss'],
+  imports: [DateRangePickerComponent, RefreshButtonComponent, AddButtonComponent, ZoomControlsComponent, SettingsComponent, AuthStatusComponent, GridComponent, ConnectionIssueResolverComponent]
 })
 export class PlaidComponent implements OnInit {
   pixelsPerMinute: number;

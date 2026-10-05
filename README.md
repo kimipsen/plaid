@@ -65,7 +65,7 @@ sudo snap install plaid
 
 ## Development
 
-Make sure you have `npm` installed on your system and available globally. Then install the dependencies:
+Make sure you have Node.js 22.22 or newer (with `npm`) installed on your system. Then install the dependencies:
 
 ```
 npm install
@@ -81,6 +81,12 @@ and in a separate terminal running Electron:
 
 ```
 npm run start-dev
+```
+
+To lint the code, run:
+
+```
+npm run lint
 ```
 
 ### Building

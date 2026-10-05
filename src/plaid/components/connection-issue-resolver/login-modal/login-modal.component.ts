@@ -1,6 +1,9 @@
 import {ChangeDetectionStrategy, Component, Input, EventEmitter, Output} from '@angular/core';
 import {AuthInfo} from '../../../model/auth-info';
 import {HttpErrorResponse} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+
+import {ExtHrefDirective} from '../../../directives/ext-href.directive';
 
 /**
  * Dumb component, presents login modal and delegates actions to parent component.
@@ -9,7 +12,8 @@ import {HttpErrorResponse} from '@angular/common/http';
   selector: 'plaid-login-modal',
   templateUrl: './login-modal.component.html',
   styleUrls: ['./login-modal.component.scss', '../connection-issue-resolver.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [FormsModule, ExtHrefDirective]
 })
 export class LoginModalComponent {
   @Input() open: boolean;

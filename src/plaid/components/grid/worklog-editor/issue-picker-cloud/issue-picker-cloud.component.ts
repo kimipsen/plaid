@@ -13,6 +13,8 @@ import {Observable, Subject} from 'rxjs';
 import {IssueFacade} from '../../../../core/issue/issue.facade';
 import {debounceTime, switchMap, tap} from 'rxjs/operators';
 
+import {IssueListItemComponent} from './issue-list-item/issue-list-item.component';
+
 /**
  * Presents a dropdown listing recent and favorite issues, searches through all issues, gives ability to add and remove
  * favorite issues, delegates selected issue to parent component.
@@ -21,7 +23,8 @@ import {debounceTime, switchMap, tap} from 'rxjs/operators';
   selector: 'plaid-issue-picker-cloud',
   templateUrl: './issue-picker-cloud.component.html',
   styleUrls: ['./issue-picker-cloud.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [IssueListItemComponent]
 })
 export class IssuePickerCloudComponent implements OnInit {
   private _open = false;

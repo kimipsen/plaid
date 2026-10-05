@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import {Calendar} from '../../../helpers/calendar';
 import {Theme} from '../../../model/theme';
+import {FormsModule} from '@angular/forms';
+
 
 /**
  * Dumb component, presents settings button and dropdown, and delegates settings changes to the parent component.
@@ -17,7 +19,8 @@ import {Theme} from '../../../model/theme';
   selector: 'plaid-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [FormsModule]
 })
 export class SettingsComponent {
   private _dropdownOpen = false;

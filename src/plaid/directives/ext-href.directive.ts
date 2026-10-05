@@ -1,8 +1,6 @@
 import {Directive, ElementRef, HostListener, Input} from '@angular/core';
 
-@Directive({
-  selector: '[plaidExtHref]'
-})
+@Directive({ selector: '[plaidExtHref]' })
 export class ExtHrefDirective {
   private _plaidExtHref: string;
 
