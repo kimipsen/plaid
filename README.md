@@ -1,5 +1,5 @@
-[![](https://img.shields.io/github/v/release/piotrmski/plaid)](https://github.com/piotrmski/plaid/releases)
-[![](https://img.shields.io/github/downloads/piotrmski/plaid/latest/Plaid-Setup-1.0.2.exe)](https://github.com/piotrmski/plaid/releases/download/v1.0.2/Plaid-Setup-1.0.2.exe)
+[![](https://img.shields.io/github/v/release/kimipsen/plaid)](https://github.com/kimipsen/plaid/releases)
+[![](https://img.shields.io/github/downloads/kimipsen/plaid/total)](https://github.com/kimipsen/plaid/releases/latest)
 [![](https://snapcraft.io//plaid/badge.svg)](https://snapcraft.io/plaid)
 
 # Plaid
@@ -52,7 +52,7 @@ Plaid lets you get a better overview of your Jira worklog. Add, edit and remove 
 
 ### Windows
 
-Download the installer from the latest [release](https://github.com/piotrmski/plaid/releases). Run the executable, and you're good to go. Your application will automatically update to newer releases.
+Download the installer from the latest [release](https://github.com/kimipsen/plaid/releases). Run the executable, and you're good to go. Your application will automatically update to newer releases.
 
 ### Ubuntu
 
