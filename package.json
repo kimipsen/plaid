@@ -14,7 +14,8 @@
     "calendar"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/piotrmski/plaid",
+  "homepage": "https://github.com/kimipsen/plaid",
+  "repository": "github:kimipsen/plaid",
   "main": "main.js",
   "build": {
     "appId": "com.github.piotrmski.plaid",
@@ -34,7 +35,11 @@
         }
       ],
       "publish": [
-        "github"
+        {
+          "provider": "github",
+          "owner": "kimipsen",
+          "repo": "plaid"
+        }
       ]
     },
     "linux": {
