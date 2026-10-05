@@ -83,10 +83,11 @@ and in a separate terminal running Electron:
 npm run start-dev
 ```
 
-To lint the code, run:
+To lint the code and run the unit tests, run:
 
 ```
 npm run lint
+npm test -- --watch=false
 ```
 
 ### Building
