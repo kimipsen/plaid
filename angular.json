@@ -120,6 +120,9 @@
               "src/**/*.html"
             ]
           }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test"
         }
       }
     }
